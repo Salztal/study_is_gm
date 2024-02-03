@@ -1,8 +1,10 @@
 ﻿@page
 @model SampleRazorApp.Pages.OtherModel
 @{
-    ViewData["Title"] = "OtherModel";
+    ViewData["Title"] = "Other";
 }
 
-<h1>Other</h1>
-<p>これは新たに追加したページです。</p>
+<div>
+    <h1 class="display-4 mb-4">Other page</h1>
+    <p class="h4">@Model.Message</p>
+</div>
