@@ -11,21 +11,21 @@
     {
         <div class="form-group">
             <label class="form-label h5">
-                @Html.CheckBox("check", true,
+                @Html.CheckBoxFor(model => model.Check,
                          new { @class = "form-check-input" })
                 @Html.DisplayName("Checkbox1")
             </label>
         </div>
         <div class="form-group">
             <label class="form-label h5">
-                @Html.RadioButton("gender", Gender.male, true,
+                @Html.RadioButtonFor(model => model.Gender, Gender.male,
                          new { @class = "form-check-input" })
                 @Html.DisplayName("male")
             </label>
         </div>
         <div class="form-group">
             <label class="form-label h5">
-                @Html.RadioButton("gender", Gender.female, false,
+                @Html.RadioButtonFor(model => model.Gender, Gender.female,
                          new { @class = "form-check-input" })
                 @Html.DisplayName("female")
             </label>
@@ -33,7 +33,7 @@
         <div class="form-group">
             <label class="form-label h5">
                 @Html.DisplayName("PC")
-                @Html.DropDownList("pc",
+                @Html.DropDownListFor(model => model.Platform,
                          new SelectList(Enum.GetValues(typeof(Platform))),
                          new { @class = "form-control" })
             </label>
@@ -41,7 +41,7 @@
         <div class="form-group">
             <label class="form-label h5">
                 @Html.DisplayName("PC2")
-                @Html.ListBox("pc2",
+                @Html.ListBoxFor(model => model.Platforms,
                          new MultiSelectList(Enum.GetValues(typeof(Platform))),
                          new { @class = "form-control", size = 5 })
             </label>
