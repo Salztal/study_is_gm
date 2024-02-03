@@ -12,11 +12,28 @@ namespace SampleRazorApp.Pages
             _logger = logger;
         }
 
+        public string Message { get; set; }
+        private string[][] data = new string[][] 
+        {
+        new string[]{"Taro", "taro@yamada"},
+        new string[]{"Hanako", "hanako@flower"},
+        new string[]{"Sachiko", "sachiko@happy"}
+        };
 
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
 
         public void OnGet()
         {
-            ViewData["message"] = "This is sample message!";
+            Message = "これはMessageプロパティの値です。";
         }
+
+        public string GetData(int id)
+        {
+            string[] target = data[id];
+            return $"[名前：{target[0]}、メール：{target[1]}]";
+        }
+
+
     }
 }
