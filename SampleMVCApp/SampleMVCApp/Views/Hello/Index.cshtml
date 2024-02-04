@@ -2,7 +2,16 @@
     ViewData["Title"] = "Index/Hello";
 }
 
-<div class="text-center">
-    <h1>Index</h1>
-    <p>This is sample page.</p>
+<div class="text-left">
+    <h1 class="display-3">Index</h1>
+    <p class="h4 mb-4">@ViewData["Message"]</p>
+    <form method="post" asp-controller="Hello" asp-action="Form">
+        <div class="form-group">
+            <label for="msg">Message</label>
+            <input type="text" name="msg" id="msg" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
