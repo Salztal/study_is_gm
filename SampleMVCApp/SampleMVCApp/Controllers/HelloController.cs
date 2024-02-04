@@ -4,30 +4,21 @@ namespace SampleMVCApp.Controllers
 {
     public class HelloController : Controller
     {
-        public List<string> list;
-
-        public HelloController()
+        [HttpGet("Hello/{id?}/{name?}")]
+        public IActionResult Index(int id, string name)
         {
-            list = new List<string>();
-            list.Add("Japan");
-            list.Add("USA");
-            list.Add("UK");
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["message"] = "Select item:";
-            ViewData["list"] = "";
-            ViewData["listdata"] = list;
+            ViewData["message"] = "※セッションにIDとNameを保存しました。";
+            HttpContext.Session.SetInt32("id", id);
+            HttpContext.Session.SetString("name", name);
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Form()
+        [HttpGet("Other")]
+        public IActionResult Other()
         {
-            ViewData["message"] = '"' + Request.Form["list"] + '"' + " selected.";
-            ViewData["list"] = Request.Form["list"];
-            ViewData["listdata"] = list;
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
+            ViewData["name"] = HttpContext.Session.GetString("name");
+            ViewData["message"] = "保存されたセッションの値を表示します。";
             return View("Index");
         }
     }

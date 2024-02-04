@@ -1,25 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Index/Hello";
-    var list = ViewData["list"];
-
-    List<string> data = (List<string>)ViewData["listdata"];
-    List<SelectListItem> listdata = new List<SelectListItem>();
-    foreach (string item in data)
-    {
-        listdata.Add(new SelectListItem { Value = item, Text = item });
-    }
 }
 
 <div class="text-left">
     <h1 class="display-3">Index</h1>
     <p class="h4 mb-4">@ViewData["Message"]</p>
-    <form method="post" asp-controller="Hello" asp-action="Form">
-        <div class="form-group">
-            <select asp-for="@list" asp-items="@listdata"
-                class="form-control"></select>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" />
-        </div>
-    </form>
+    <ul class="h5">
+        <li>@ViewData["id"]</li>
+        <li>@ViewData["name"]</li>
+    </ul>
 </div>
