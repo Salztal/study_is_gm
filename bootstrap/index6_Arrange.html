@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- 必要なmetaタグ -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <title>Hello, world!</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row border my-3">
+                <div class="col text-start">text-start</div>
+                <div class="col text-center bg-info">text-center</div>
+                <div class="col text-end">text-end</div>
+            </div>
+
+            <div class="row justify-content-center border">
+                <div class="col-6 bg-info">justify-content-center</div>
+            </div>
+
+            <div class="row align-items-center border my-3" style="height: 70px">
+                <div class="col-4 bg-warning">align-items-center</div>
+            </div>
+
+            <div class="row border" style="height: 100px">
+                <div class="col align-self-start bg-warning">align-self-start</div>
+                <div class="col align-self-center bg-warning">align-self-center</div>
+                <div class="col align-self-end bg-warning">align-self-end</div>
+            </div>
+        </div>
+
+        <!-- オプション：Popperを含んだBootstrapバンドル版 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+<!--
+text-start 左配置
+text-center 中央
+text-end   右配置
+
+justify-content-center 左右中央
+
+align-items-center 上下中央に配置(こいつだけよくわからん)
+
+align-self-start 自身を上に
+align-self-center 自身を上下中央に
+align-self-end 　自身を下に
+-->

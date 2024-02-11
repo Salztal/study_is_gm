@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- 必要なmetaタグ -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <title>Hello, world!</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row border">
+                <div class="col">col</div>
+                <div class="col bg-info">col</div>
+                <div class="col">col</div>
+            </div>
+            <br>
+            <div class="row border">
+                <div class="col-3">col-3</div>
+                <div class="col-6 bg-info">col-6</div>
+                <div class="col">col</div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="row border">
+                <div class="col-6 col-md-4">1 of 3</div>
+                <div class="col-6 col-md-4 bg-info">2 of 3</div>
+                <div class="col-6 col-md-4">3 of 3</div>
+            </div>
+        </div>
+
+        <!-- オプション：Popperを含んだBootstrapバンドル版 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+<!--
+グリッドシステム　画面を12分割して表示してくれるシステムらしい
+画面サイズに応じて最大幅を調整するためにcontainer container-fluidがよく使われる
+container           画面サイズ幅に応じる
+container-fluid     常に100%のバカ
+row(行)とcol(列)を使ったBootstrapの基本的なレイアウト要素(マジで大事)
+一個目のやつ　特に指定してないから綺麗に三分割
+二個目のやつ　3:6:3で分割されてる
+三個目のやつ　4:4:4画面サイズによっては6:6になる
+-->
