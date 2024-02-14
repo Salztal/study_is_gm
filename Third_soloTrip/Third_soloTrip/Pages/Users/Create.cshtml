@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post" onsubmit="userUpdate_Dialog()">
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="User.Name" class="control-label"></label>
@@ -29,7 +29,34 @@
                 <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Launch static backdrop modal
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-muted">ユーザ名</p>
+                            <p class="px-2" id="confUserName"></p>
+                            <p class="text-muted">メールアドレス</p>
+                            <p class="px-2" id="confUserEmail"></p>
+                            <p class="text-muted">パスワード</p>
+                            <p class="px-2" id="confUserPassword"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                            <input type="submit" value="Create" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -39,7 +66,28 @@
     <a asp-page="Index">Back to List</a>
 </div>
 
+<script>
+    const exampleModal = document.getElementById('staticBackdrop')
+    if (exampleModal) {
+        exampleModal.addEventListener('show.bs.modal', event => {
+            console.log("やぁ")
+
+            var userName = $('#User_Name').val();
+            console.log(userName)
+            var userEmail = $('#User_Email').val();
+            var userPassword = $('#User_Password').val();
+            var modal = $(exampleModal);
+
+            // モデルのプロパティに基づいて正しいIDを使用
+            modal.find('#confUserName').text(userName);
+            modal.find('#confUserEmail').text(userEmail);
+            modal.find('#confUserPassword').text(userPassword);
+        })
+    }
+</script>
+
 @section Scripts {
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 }
