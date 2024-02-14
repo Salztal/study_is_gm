@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function userUpdate_Dialog() {
+	var res = confirm("会員情報を更新してもよろしいですか?");
+	if (res) {
+		// OKボタンを押したときの処理
+		return ture;
+	} else {
+		// キャンセルボタンを押したときの処理
+		return false;
+	}
+}
