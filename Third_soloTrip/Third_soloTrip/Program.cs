@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Third_soloTrip.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Third_soloTripContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Third_soloTripContext") ?? throw new InvalidOperationException("Connection string 'Third_soloTripContext' not found.")));
 
 var app = builder.Build();
 
